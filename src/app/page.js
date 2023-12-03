@@ -1,12 +1,10 @@
-"use client";
-
-import { Button } from "@nextui-org/react";
-import Image from "next/image";
+import Counter from "./_components/counter/Counter";
 
 export default function Home() {
   return (
-    <main className="">
-      <Button color="primary">Button</Button>
-    </main>
+    <div>
+      <h1>Home page</h1>
+      <Counter />
+    </div>
   );
 }
