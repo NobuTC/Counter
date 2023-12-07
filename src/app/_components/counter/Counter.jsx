@@ -26,12 +26,15 @@ const Counter = () => {
   };
 
   const decreaseNumber = (counterId) => {
-    const currentCopiedArray = [...counters];
+    setCounters((prevCounters) => {
+      const updatedCounters = prevCounters.map((counter) => {
+        if (counter.id === counterId) {
+          return { ...counter, value: counter.value - 1 };
+        }
+        return counter;
+      });
 
-    currentCopiedArray.map((counter) => {
-      if (counter.id === counterId) {
-        counter.value = counter.value - 1;
-      }
+      return updatedCounters;
     });
   };
 
@@ -60,7 +63,12 @@ const Counter = () => {
               </Button>
             </div>
             <div className="mr-5">
-              <Button color="primary" onClick={decreaseNumber(counter.id)}>
+              <Button
+                color="primary"
+                onClick={() => {
+                  decreaseNumber(counter.id);
+                }}
+              >
                 -
               </Button>
             </div>
