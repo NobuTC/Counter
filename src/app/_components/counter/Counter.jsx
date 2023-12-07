@@ -44,7 +44,7 @@ const Counter = () => {
   };
 
   return (
-    <div className="items-center h-screen p-10">
+    <div className="flex flex-col items-center justify-center h-screen p-10 ">
       {counters.map((counter, index) => (
         <div key={index} className="flex flex-col mb-5">
           <h2>Player {counter.id}</h2>
