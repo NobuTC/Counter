@@ -49,66 +49,74 @@ const Counter = () => {
     setCounters((prevCounters) =>
       prevCounters.filter((counter) => counter.id !== counterId)
     );
-
-    // In the counter that you want to delete, a counter has {id, value}
-
-    // loop through all the counters from counters
-
-    // counters.map((prevCounters)=> {})
-
-    // in the loop, check counter.id === counterId
-    // if it matches, then we delete the counter from the counters Array
-    // delete that one from that counters array
-    // setCounters to new counters array
   };
 
   return (
-    <div className="">
-      <Image src="https://i.imgur.com/sLGHOOh.jpg " />
-      <div className="flex flex-col items-center justify-center p-10 ">
-        <h1 className="p-10 text-4xl font-bold ">All Players:</h1>
-        {counters.map((counter, index) => (
-          <div key={index} className="flex flex-col mb-5">
-            <h2 className="font-bold">Player {counter.id}</h2>
-            <div className="flex flex-row">
-              <div className="mr-5">
-                <Input value={counter.value} disabled />
-              </div>
-              <div className="mr-5">
-                <Button
-                  color="primary"
-                  onClick={() => {
-                    increaseNumber(counter.id);
-                  }}
-                >
-                  +
-                </Button>
-              </div>
-              <div className="mr-5">
-                <Button
-                  color="primary"
-                  onClick={() => {
-                    decreaseNumber(counter.id);
-                  }}
-                >
-                  -
-                </Button>
-              </div>
-              <div>
-                <Button
-                  color="warning"
-                  onClick={() => {
-                    deleteOneCounter(counter.id);
-                  }}
-                >
-                  Delete Player
-                </Button>
+    <div
+      style={{
+        backgroundImage: "url('https://i.imgur.com/sLGHOOh.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        height: "100vh",
+        backgroundRepeat: "no-repeat",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <div
+        style={{
+          backgroundColor: "white",
+          padding: "10px",
+          marginBottom: "10px",
+        }}
+      >
+        <div className="flex flex-col items-center justify-center p-10 ">
+          <h1 className="p-10 text-4xl font-bold ">All Players:</h1>
+          {counters.map((counter, index) => (
+            <div key={index} className="flex flex-col mb-5">
+              <h2 className="font-bold">Player {counter.id}</h2>
+              <div className="flex flex-row">
+                <div className="mr-5">
+                  <Input value={counter.value} disabled />
+                </div>
+                <div className="mr-5">
+                  <Button
+                    color="primary"
+                    onClick={() => {
+                      increaseNumber(counter.id);
+                    }}
+                  >
+                    +
+                  </Button>
+                </div>
+                <div className="mr-5">
+                  <Button
+                    color="primary"
+                    onClick={() => {
+                      decreaseNumber(counter.id);
+                    }}
+                  >
+                    -
+                  </Button>
+                </div>
+                <div>
+                  <Button
+                    color="warning"
+                    onClick={() => {
+                      deleteOneCounter(counter.id);
+                    }}
+                  >
+                    Delete Player
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
 
-        <Button onClick={addMoreCounters}>Add more Player</Button>
+          <Button onClick={addMoreCounters}>Add more Player</Button>
+        </div>
       </div>
     </div>
   );
