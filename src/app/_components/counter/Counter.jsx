@@ -51,6 +51,16 @@ const Counter = () => {
     );
   };
 
+  const resetAllCounters = () => {
+    //loop every counter and return new array
+    // give all counter value 0
+    const newCounters = counters.map((counter) => {
+      counter.value = 0;
+      return counter;
+    });
+    setCounters(newCounters);
+  };
+
   return (
     <div
       style={{
@@ -114,8 +124,10 @@ const Counter = () => {
               </div>
             </div>
           ))}
-
-          <Button onClick={addMoreCounters}>Add more Player</Button>
+          <div className="space-x-4">
+            <Button onClick={addMoreCounters}>Add More Player</Button>
+            <Button onClick={resetAllCounters}>Reset All Players Points</Button>
+          </div>
         </div>
       </div>
     </div>
